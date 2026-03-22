@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>3.3 vspm 若支持中断需增加的硬件</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .hw-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2vw;
+      margin-top: 2vh;
+    }
+    .hw-item {
+      background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 12px;
+      padding: 3vh 2vw;
+      transition: transform 0.3s;
+    }
+    .hw-item:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent);
+    }
+    .hw-item h3 {
+      color: var(--accent);
+      font-size: clamp(18px, 2vw, 26px);
+      margin-bottom: 1.5vh;
+      display: flex;
+      align-items: center;
+      gap: 1vw;
+    }
+    .hw-item p {
+      font-size: clamp(14px, 1.5vw, 20px);
+      line-height: 1.6;
+      margin: 0;
+    }
+    .icon {
+      font-size: 1.5em;
+    }
+  </style>
+</head>
+<body>
+  <div class="slide">
+    <h1 class="slide-title">3.3 vspm 扩展中断需增加的硬件</h1>
+    <div class="content animate-slide-up">
+      <div class="hw-grid">
+        <div class="hw-item delay-1">
+          <h3><span class="icon">🔌</span> 中断请求引脚</h3>
+          <p>在 CPU 芯片外部增加物理引脚，用于接收键盘、定时器等外部设备发来的信号。</p>
+        </div>
+        <div class="hw-item delay-2">
+          <h3><span class="icon">🚩</span> 中断允许触发器（IE 位）</h3>
+          <p>在内部增加一个 1 bit 的标志位硬件，用于控制是否屏蔽外界打扰（IE=0 屏蔽，IE=1 允许中断）。</p>
+        </div>
+        <div class="hw-item delay-3">
+          <h3><span class="icon">📚</span> 硬件堆栈指针寄存器（SP）</h3>
+          <p>CPU 被打断时需找专用内存保存当前 PC 值和状态位。vspm 必须添加堆栈概念及指向栈顶的寄存器 SP。</p>
+        </div>
+        <div class="hw-item delay-4">
+          <h3><span class="icon">🔀</span> 中断向量生成逻辑</h3>
+          <p>需要硬件能自动生成一个固定内存地址，以确保打断后能跳转到专门处理中断的代码（中断服务程序 ISR）执行。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

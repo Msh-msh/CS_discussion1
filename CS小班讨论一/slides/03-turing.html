@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>一、 vspm 的图灵完备性</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .turing-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 3vh;
+    }
+    .part {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2.5vh 3vw;
+      border-radius: 12px;
+    }
+    .part h3 {
+      color: var(--accent);
+      font-size: clamp(20px, 2vw, 30px);
+      margin-bottom: 1.5vh;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 1vh;
+    }
+    .highlight-box {
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid var(--accent);
+      padding: 1.5vh 2vw;
+      border-radius: 8px;
+      margin-top: 1.5vh;
+    }
+  </style>
+</head>
+<body>
+  <div class="slide">
+    <h1 class="slide-title">一、 vspm 的图灵完备性</h1>
+    <div class="content turing-layout">
+      <div class="part animate-slide-left">
+        <h3>1.1 图灵完备的含义</h3>
+        <ul>
+          <li><strong>定义：</strong> 图灵完备是指一个计算系统具有模拟通用图灵机的所有计算能力。</li>
+          <li><strong>通俗理解：</strong> 只要是现实中可以通过计算解决的问题，图灵完备的系统都能解决（前提是给予无限的内存和时间）。</li>
+        </ul>
+      </div>
+      
+      <div class="part animate-slide-right delay-2">
+        <h3>1.2 达到图灵完备的核心能力</h3>
+        <ul>
+          <li><strong>数据操作（状态改变）：</strong> 能够读取、修改和存储数据（如具备内存和寄存器，能执行加减法或简单位运算）。</li>
+          <li><strong>条件控制流（分支跳转）：</strong> 能够根据当前的数据状态做出不同决定，并跳转到不同步骤执行，从而实现循环。</li>
+        </ul>
+      </div>
+
+      <div class="part animate-slide-up delay-4">
+        <h3>1.3 vspm 的判断依据</h3>
+        <p>系统若同时具备内存/寄存器操作指令、基本运算指令和条件跳转指令（关键），在实际意义上就是图灵完备的。</p>
+        <div class="highlight-box">
+          <p><strong>对应实现：</strong> 原型机 vspm 确实拥有这三种指令（mov类、add和sub、jmp和jg）。<br/>
+          <span style="color: var(--accent); font-weight: bold; font-size: 1.2em;">结论： vspm 是图灵完备的！</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
