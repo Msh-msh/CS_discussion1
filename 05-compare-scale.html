@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2.2 指令规模差异</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .pics-layout {
+      display: flex;
+      gap: 2vw;
+      margin-top: 2vh;
+      height: 48vh;
+    }
+    .pic-left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 1.5vh;
+      max-width: 45%;
+    }
+    .pic-left img {
+      max-height: 38vh;
+      height: 100%;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+    .pic-right {
+      flex: 1.2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 1.5vh;
+      justify-content: center;
+    }
+    .pic-right-images {
+      display: flex;
+      gap: 1.5vw;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      flex: 1;
+    }
+    .pic-right-images img {
+      max-height: 35vh;
+      max-width: 48%;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+    .pic-caption {
+      margin-top: 1vh;
+      color: var(--accent-light);
+      font-size: clamp(14px, 1.5vw, 20px);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="slide">
+    <h1 class="slide-title">2.2 指令规模差异</h1>
+    <div class="content animate-fade">
+      <ul>
+        <li><strong>资料依据：</strong> Intel 官方长达2500页的开发人员手册显示，该架构拥有超过1500条指令，且 core 285k 还支持内部硬件集成的扩展指令集。</li>
+        <li><strong>数量对比：</strong> 与 vspm 仅有的 12 条指令相比，差距达数百倍。</li>
+      </ul>
+      
+      <div class="pics-layout delay-2">
+        <div class="pic-left">
+          <img src="../pictures/图片1.png" alt="Intel 手册">
+          <div class="pic-caption">Intel官网的x86开发人员手册</div>
+        </div>
+        <div class="pic-right">
+          <div class="pic-right-images">
+            <img src="../pictures/图片2.png" alt="vspm指令">
+            <img src="../pictures/图片3.png" alt="对比">
+          </div>
+          <div class="pic-caption">x86指令集中的add和jmp指令</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

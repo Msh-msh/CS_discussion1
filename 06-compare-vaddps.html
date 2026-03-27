@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2.3 代表性指令分析：VADDPS</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="slide">
+    <h1 class="slide-title">2.3 代表性指令分析：VADDPS</h1>
+    <div class="content animate-slide-up">
+      <div class="with-image-right">
+        <div class="text-panel" style="flex: 1;">
+          <div class="card delay-1" style="margin-bottom: 2vh;">
+            <div class="card-title">功能解析</div>
+            <p>这是一个 AVX 扩展指令，用于对多个单精度浮点数（float）同时做加法运算：</p>
+            <ul style="font-size: 1rem;">
+              <li><strong>v:</strong> vector</li>
+              <li><strong>add:</strong> 加法</li>
+              <li><strong>ps:</strong> packed single-precision</li>
+            </ul>
+          </div>
+          <div class="card delay-2">
+            <div class="card-title">并行能力 vs vspm</div>
+            <ul>
+              <li><strong>core 285k:</strong> 内部拥有256位宽的寄存器，可在一个时钟周期内同时对<strong>8组</strong>32位浮点数进行并发相加。</li>
+              <li><strong>vspm 对照:</strong> vspm 的 <code>add</code> 指令只是简单的 (Rs) + (Rd) -> Rd，一次只能实现一组数据的标量相加。</li>
+            </ul>
+          </div>
+        </div>
+        <div class="image-panel delay-3" style="flex: 0 0 50%;">
+          <div class="image-container">
+            <img src="../pictures/图片4.png" alt="VADDPS 指令详解" class="slide-image" style="max-height: 520px; transform: scale(1.1); transform-origin: center right;">
+            <div class="image-caption" style="position: relative; background: rgba(15, 23, 42, 0.9); margin-top: 8px; border-radius: 4px;">VADDPS 指令</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
